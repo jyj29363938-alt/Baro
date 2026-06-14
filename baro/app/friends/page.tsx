@@ -9,25 +9,20 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { friends, routines, friendActivities } from "@/data/friends";
 
-function FriendRow({ name, streak, msg, done, stage, stageImg }: { name: string; streak: string; msg: string; done: boolean; stage: number; stageImg: string }) {
+function FriendRow({ name, streak, msg, stage, stageImg }: { name: string; streak: string; msg: string; stage: number; stageImg: string }) {
   return (
     <Card tone="flat" padding={16} radius={18} style={{ marginBottom: 12 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-        <Avatar size={48} />
+        <Avatar size={48} src={stageImg} alt={`인간화 ${stage}단계`} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <span style={{ fontSize: 16, fontWeight: 700 }}>{name}</span>
-            <Image src={stageImg} alt={`인간화 ${stage}단계`} width={22} height={22} />
             <span style={{ fontSize: 12, fontWeight: 700, color: "var(--brand-primary)" }}>{stage}단계</span>
             <span style={{ fontSize: 13, fontWeight: 700 }}>🔥{streak}</span>
           </div>
-          <div style={{ fontSize: 14, color: done ? "var(--text-tertiary)" : "var(--brand-primary)", fontWeight: 600, marginTop: 3 }}>
+          <div style={{ fontSize: 14, color: "var(--brand-primary)", fontWeight: 600, marginTop: 3 }}>
             {msg}
           </div>
-        </div>
-        <div style={{ display: "flex", gap: 12, color: "var(--text-tertiary)" }}>
-          <Icon name="chat" size={22} color="var(--text-tertiary)" />
-          <Icon name="favorite" size={22} color="var(--text-tertiary)" />
         </div>
       </div>
     </Card>
@@ -92,7 +87,7 @@ export default function FriendsPage() {
         </div>
 
         {friends.map((f) => (
-          <FriendRow key={f.id} name={f.name} streak={f.streak} msg={f.msg} done={f.done} stage={f.stage} stageImg={f.stageImg} />
+          <FriendRow key={f.id} name={f.name} streak={f.streak} msg={f.msg} stage={f.stage} stageImg={f.stageImg} />
         ))}
 
         <div style={{ fontSize: 20, fontWeight: 700, margin: "20px 0 12px" }}>친구의 스트레칭 기록</div>

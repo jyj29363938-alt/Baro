@@ -3,14 +3,13 @@ export interface Friend {
   name: string;
   streak: string;
   msg: string;
-  done: boolean;
   stage: number;
   stageImg: string;
 }
 
 export const friends: Friend[] = [
-  { id: "eunji", name: "최은지님", streak: "14일", msg: "아직 스트레칭을 하지 않았어요!", done: false, stage: 1, stageImg: "/images/stage-1-turtle.svg" },
-  { id: "soohyun", name: "김수현님", streak: "51일", msg: "함께 스트레칭을 해보아요!", done: true, stage: 4, stageImg: "/images/stage-4-human.svg" },
+  { id: "eunji", name: "최은지님", streak: "14일", msg: "아직 스트레칭을 하지 않았어요!", stage: 1, stageImg: "/images/avatar-stage-1.svg" },
+  { id: "soohyun", name: "김수현님", streak: "51일", msg: "함께 스트레칭을 해보아요!", stage: 4, stageImg: "/images/avatar-stage-4.svg" },
 ];
 
 export interface Routine {

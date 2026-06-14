@@ -1,0 +1,24 @@
+<!-- @dsCard group="Type" viewport="700x320" name="Type scale" subtitle="Display 40 → caption 12, on a tight Pretendard scale" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-card); color: var(--text-primary); padding: 28px; }
+  .r { display: flex; align-items: baseline; gap: 20px; padding: 8px 0; border-bottom: 1px solid var(--border-subtle); }
+  .r:last-child { border-bottom: 0; }
+  .tag { width: 96px; flex: none; font-size: 11px; color: var(--text-tertiary); font-weight: 600; }
+  .px { width: 70px; flex: none; font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+  .sample { letter-spacing: -0.01em; }
+</style>
+</head>
+<body>
+  <div class="r"><span class="tag">display</span><span class="px">40 / 700</span><span class="sample" style="font-size:40px;font-weight:700;letter-spacing:-0.02em">14:00</span></div>
+  <div class="r"><span class="tag">title</span><span class="px">24 / 700</span><span class="sample" style="font-size:24px;font-weight:700">나의 기록</span></div>
+  <div class="r"><span class="tag">heading</span><span class="px">20 / 600</span><span class="sample" style="font-size:20px;font-weight:600">오늘의 스트레칭</span></div>
+  <div class="r"><span class="tag">body</span><span class="px">16 / 500</span><span class="sample" style="font-size:16px;font-weight:500">굽은 등 바로 하기</span></div>
+  <div class="r"><span class="tag">label</span><span class="px">14 / 600</span><span class="sample" style="font-size:14px;font-weight:600">함께하기</span></div>
+  <div class="r"><span class="tag">caption</span><span class="px">12 / 400</span><span class="sample" style="font-size:12px;font-weight:400;color:var(--text-secondary)">이번주 인기 스트레칭 루틴</span></div>
+</body>
+</html>

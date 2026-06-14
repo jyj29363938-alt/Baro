@@ -1,0 +1,41 @@
+<!-- @dsCard group="Components" viewport="700x260" name="Cards, badges & avatars" subtitle="Surfaces in 4 tones, pill badges, avatar" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-page); color: var(--text-primary); padding: 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+  .card { border-radius: 20px; padding: 18px; font-size: 14px; font-weight: 600; }
+  .default { background: #fff; box-shadow: var(--shadow-card); }
+  .flat { background: #fff; border: 1px solid var(--border-subtle); }
+  .mint { background: var(--surface-mint); color: var(--text-brand); }
+  .mint-dashed { background: var(--surface-mint); border: 1.5px dashed var(--border-dashed); color: var(--text-brand); text-align: center; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 14px; font-size: 14px; font-weight: 700; border-radius: 999px; }
+  .b-streak { background: #fff; box-shadow: var(--shadow-card); }
+  .b-brand { background: var(--brand-primary); color: #fff; }
+  .b-mint { background: var(--surface-mint-strong); color: var(--text-brand); }
+  .b-dark { background: var(--neutral-900); color: #fff; font-size:12px; height:24px; }
+  .ava { width: 52px; height: 52px; border-radius: 50%; background: var(--neutral-300); }
+  .ava.ring { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--brand-primary); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="card default">기본 카드 · shadow</div>
+    <div class="card flat">flat · 1px border</div>
+    <div class="card mint">mint wash</div>
+    <div class="card mint-dashed">나의 목표 · dashed</div>
+  </div>
+  <div class="row">
+    <span class="badge b-streak">🔥 23일차</span>
+    <span class="badge b-brand">함께하기</span>
+    <span class="badge b-mint">인간화 2단계</span>
+    <span class="badge b-dark">우주인님 루틴</span>
+    <span class="ava"></span>
+    <span class="ava ring"></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!-- @dsCard group="Spacing" viewport="700x170" name="Spacing scale" subtitle="4px base grid, 1 → 16" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-card); color: var(--text-primary); padding: 24px; }
+  .row { display: flex; align-items: flex-end; gap: 18px; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .bar { background: var(--green-300); border-radius: 4px; width: 100%; }
+  .box { display: flex; align-items: flex-end; height: 64px; }
+  .name { font-size: 11px; font-weight: 600; }
+  .val { font-size: 10px; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+  <div class="row" id="row"></div>
+  <script>
+    const steps = [["1","4px"],["2","8px"],["3","12px"],["4","16px"],["5","20px"],["6","24px"],["8","32px"],["10","40px"],["12","48px"],["16","64px"]];
+    document.getElementById("row").innerHTML = steps.map(([n,v]) => `
+      <div class="item">
+        <div class="box"><div class="bar" style="width:${v};height:${v}"></div></div>
+        <span class="name">${n}</span>
+        <span class="val">${v}</span>
+      </div>`).join("");
+  </script>
+</body>
+</html>

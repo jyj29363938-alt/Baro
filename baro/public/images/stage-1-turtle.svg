@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="stage1-shell" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5FF0AE"/>
+      <stop offset="100%" stop-color="#00A85E"/>
+    </linearGradient>
+  </defs>
+  <!-- tail -->
+  <path d="M4 38 L12 33 L12 45 Z" fill="#00A85E"/>
+  <!-- legs -->
+  <ellipse cx="16" cy="50" rx="6" ry="5" fill="#00A85E"/>
+  <ellipse cx="38" cy="50" rx="6" ry="5" fill="#00A85E"/>
+  <!-- shell -->
+  <ellipse cx="28" cy="34" rx="24" ry="18" fill="url(#stage1-shell)"/>
+  <!-- shell pattern lines -->
+  <path d="M10 30 Q28 22 46 30" stroke="#BFFBE0" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M8 38 Q28 46 48 38" stroke="#00713F" stroke-width="2" fill="none" opacity="0.35"/>
+  <path d="M28 16 L28 52" stroke="#00713F" stroke-width="2" fill="none" opacity="0.25"/>
+  <!-- head -->
+  <circle cx="51" cy="28" r="9" fill="#7CF5C0"/>
+  <!-- eye -->
+  <ellipse cx="54" cy="26" rx="1.6" ry="2.6" fill="#1a1a1a"/>
+</svg>

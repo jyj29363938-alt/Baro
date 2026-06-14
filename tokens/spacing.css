@@ -1,0 +1,33 @@
+/* ============================================================
+   Baro — Spacing & layout tokens
+   4px base grid. Generous padding inside cards (20–24px),
+   comfortable gaps between sections (24–32px).
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+
+  /* ---- Semantic spacing ---- */
+  --gap-chip:        8px;    /* between day chips / pills      */
+  --gap-inline:      12px;   /* icon ↔ label                  */
+  --pad-card:        20px;   /* inner card padding            */
+  --pad-card-lg:     24px;   /* large card padding            */
+  --pad-screen:      24px;   /* screen left/right gutter      */
+  --gap-section:     32px;   /* between page sections         */
+
+  /* ---- Mobile frame ---- */
+  --app-width:       390px;  /* design width (iPhone class)   */
+  --nav-height:      72px;   /* bottom tab bar                */
+  --header-height:   64px;   /* top header                    */
+}

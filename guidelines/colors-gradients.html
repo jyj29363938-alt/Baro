@@ -1,0 +1,24 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Signature gradients" subtitle="Mint-sky, hill, brand and alarm blends" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-card); color: var(--text-primary); }
+  .row { display: flex; gap: 16px; padding: 24px; }
+  .g { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .swatch { height: 96px; border-radius: 16px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05); }
+  .name { font-size: 11.5px; font-weight: 600; }
+  .desc { font-size: 10px; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="g"><div class="swatch" style="background:var(--gradient-mint-sky)"></div><span class="name">mint-sky</span><span class="desc">record / hero bg</span></div>
+    <div class="g"><div class="swatch" style="background:var(--gradient-hill)"></div><span class="name">hill</span><span class="desc">ground plane</span></div>
+    <div class="g"><div class="swatch" style="background:var(--gradient-brand)"></div><span class="name">brand</span><span class="desc">primary fills</span></div>
+    <div class="g"><div class="swatch" style="background:var(--gradient-alarm)"></div><span class="name">alarm</span><span class="desc">next-alarm card</span></div>
+  </div>
+</body>
+</html>

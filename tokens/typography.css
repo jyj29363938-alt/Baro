@@ -1,0 +1,75 @@
+/* ============================================================
+   Baro — Typography tokens
+   Single family: Pretendard. SemiBold (600) is the workhorse
+   weight — used for nearly every label, heading and value.
+   Regular/Medium for supporting copy; Bold for big numbers.
+   ============================================================ */
+
+:root {
+  /* ---- Family ---- */
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+               "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+
+  /* ---- Weights ---- */
+  --weight-light:      300;
+  --weight-regular:    400;
+  --weight-medium:     500;
+  --weight-semibold:   600;   /* default UI weight */
+  --weight-bold:       700;
+  --weight-extrabold:  800;
+
+  /* ---- Font sizes (px) — sourced from the Figma file ---- */
+  --font-size-display: 40px;  /* hero numbers: 14:00, stage   */
+  --font-size-2xl:     30px;  /* big stat                     */
+  --font-size-xl:      24px;  /* screen title / streak count  */
+  --font-size-lg:      20px;  /* section heading              */
+  --font-size-md:      18px;  /* sub-heading                  */
+  --font-size-base:    16px;  /* body / list item title       */
+  --font-size-sm:      14px;  /* body small / labels          */
+  --font-size-xs:      12px;  /* caption / chip / meta         */
+
+  /* ---- Line heights ---- */
+  --line-tight:   1.2;   /* headings & numbers */
+  --line-snug:    1.35;  /* UI labels          */
+  --line-normal:  1.5;   /* body copy          */
+
+  /* ---- Letter spacing ---- */
+  --tracking-tight:  -0.02em;  /* large display & numbers */
+  --tracking-normal: -0.01em;  /* default for Pretendard  */
+  --tracking-wide:    0.04em;  /* spaced day initials     */
+
+  /* ============================================================
+     Composite text-style tokens (font: shorthand-ready values)
+     Use individually: font-size + weight + line-height.
+     ============================================================ */
+
+  /* Display — alarm clock, stage label */
+  --text-display-size:   var(--font-size-display);
+  --text-display-weight: var(--weight-bold);
+  --text-display-lh:     var(--line-tight);
+
+  /* Screen title — "나의 기록", "알림 설정" */
+  --text-title-size:   var(--font-size-xl);
+  --text-title-weight: var(--weight-bold);
+  --text-title-lh:     var(--line-tight);
+
+  /* Section heading — "오늘의 스트레칭" */
+  --text-heading-size:   var(--font-size-lg);
+  --text-heading-weight: var(--weight-semibold);
+  --text-heading-lh:     var(--line-snug);
+
+  /* Body — list titles, button labels */
+  --text-body-size:   var(--font-size-base);
+  --text-body-weight: var(--weight-medium);
+  --text-body-lh:     var(--line-normal);
+
+  /* Label — chips, meta, secondary actions */
+  --text-label-size:   var(--font-size-sm);
+  --text-label-weight: var(--weight-semibold);
+  --text-label-lh:     var(--line-snug);
+
+  /* Caption — smallest meta */
+  --text-caption-size:   var(--font-size-xs);
+  --text-caption-weight: var(--weight-regular);
+  --text-caption-lh:     var(--line-snug);
+}

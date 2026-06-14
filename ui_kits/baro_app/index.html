@@ -1,0 +1,99 @@
+<!-- @dsCard group="Baro App" viewport="430x760" subtitle="Interactive app — tap the bottom nav & header" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Baro — App</title>
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { font-family: var(--font-sans); background: #e9ebee;
+    display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+  #stage { transform-origin: center center; }
+  .phone { width: 390px; height: 844px; background: var(--surface-page); border-radius: 46px;
+    box-shadow: 0 30px 80px rgba(40,50,60,.32), 0 0 0 11px #1c1c1e, 0 0 0 13px #2c2c2e;
+    overflow: hidden; position: relative; display: flex; flex-direction: column; }
+  .statusbar { height: 44px; flex: none; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px; font-size: 14px; font-weight: 700; color: var(--text-primary);
+    background: var(--surface-page); position: relative; z-index: 6; }
+  .notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 120px; height: 26px; background: #1c1c1e; border-radius: 16px; z-index: 7; }
+  .scroll { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+  .scroll::-webkit-scrollbar { display: none; }
+  .homebar { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: rgba(0,0,0,.25); z-index: 8; }
+</style>
+</head>
+<body>
+  <div id="stage"><div id="root"></div></div>
+
+  <script type="text/babel" src="icons.jsx"></script>
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="screen-home.jsx"></script>
+  <script type="text/babel" src="screen-record.jsx"></script>
+  <script type="text/babel" src="screen-friends.jsx"></script>
+  <script type="text/babel" src="screen-alarm.jsx"></script>
+  <script type="text/babel" src="screen-mypage.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    function StatusBar() {
+      return (
+        <div className="statusbar">
+          <span>9:41</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13 }}>
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="1"/><rect x="5" y="1.5" width="3" height="9" rx="1"/><rect x="10" y="0" width="3" height="11" rx="1" opacity=".35"/></svg>
+            <svg width="22" height="12" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="3" stroke="currentColor" strokeOpacity=".5"/><rect x="3" y="3" width="14" height="6" rx="1.5" fill="currentColor"/><rect x="22" y="4" width="1.6" height="4" rx="1" fill="currentColor" fillOpacity=".5"/></svg>
+          </span>
+        </div>
+      );
+    }
+
+    function App() {
+      const [tab, setTab] = React.useState("home");
+      const [overlay, setOverlay] = React.useState(null);
+      const scrollRef = React.useRef(null);
+      const go = (dest) => {
+        if (dest === "mypage") { setOverlay("mypage"); return; }
+        if (["home","record","stretch","alarm"].includes(dest)) { setOverlay(null); setTab(dest); }
+        if (scrollRef.current) scrollRef.current.scrollTop = 0;
+      };
+      React.useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [tab, overlay]);
+
+      let screen;
+      if (overlay === "mypage") screen = <MyPageScreen go={go} />;
+      else if (tab === "home") screen = <HomeScreen go={go} />;
+      else if (tab === "record") screen = <RecordScreen go={go} />;
+      else if (tab === "stretch") screen = <FriendsScreen go={go} />;
+      else screen = <AlarmScreen go={go} />;
+
+      return (
+        <div className="phone">
+          <div className="notch" />
+          <StatusBar />
+          <div className="scroll" ref={scrollRef}>{screen}</div>
+          <BottomNav active={overlay ? "" : tab} onChange={go} />
+          <div className="homebar" />
+        </div>
+      );
+    }
+
+    function fit() {
+      const stage = document.getElementById("stage");
+      const pad = 32;
+      const s = Math.min((window.innerWidth - pad) / 390, (window.innerHeight - pad) / 844, 1);
+      stage.style.transform = `scale(${s})`;
+    }
+    window.addEventListener("resize", fit);
+
+    function start() {
+      if (!window.HomeScreen || !window.BottomNav || !window.Icon) { setTimeout(start, 40); return; }
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+      fit();
+    }
+    start();
+  </script>
+</body>
+</html>

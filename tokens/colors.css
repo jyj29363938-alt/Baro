@@ -1,0 +1,82 @@
+/* ============================================================
+   Baro — Color tokens
+   Brand: fresh, energetic green. Mascot is a turtle evolving
+   into a human ("인간화"). Greens carry the brand; warm amber
+   accents power streak/flame moments; neutrals stay cool-gray.
+   ============================================================ */
+
+:root {
+  /* ---- Brand green scale ---------------------------------- */
+  --green-50:  #EBFFF5;   /* lightest mint surface         */
+  --green-100: #D6FFE9;   /* mint surface / soft fill      */
+  --green-200: #B6FFD4;   /* mint fill                     */
+  --green-300: #7EFAB7;   /* light green, gradient stop    */
+  --green-400: #3AE9A1;   /* bright green, gradient stop   */
+  --green-500: #00C776;   /* PRIMARY brand green           */
+  --green-600: #00AF67;   /* hover / deeper fill           */
+  --green-700: #04975E;   /* text-on-mint, pressed         */
+  --green-800: #03794E;   /* deepest green, dark accents   */
+
+  /* Signature accents seen in mascot & progress gradients */
+  --green-neon:  #00FFAE;  /* neon highlight                */
+  --green-mint:  #9CFFEA;  /* cyan-mint, gradient cool end  */
+
+  /* ---- Warm accents (streak / flame / sun) --------------- */
+  --amber-500: #FFA509;   /* flame, sun core               */
+  --amber-300: #FFDB63;   /* sun rays, warm highlight      */
+
+  /* ---- Neutrals (cool gray) ------------------------------ */
+  --neutral-0:    #FFFFFF;
+  --neutral-50:   #FAFAFA;  /* page background             */
+  --neutral-100:  #EFEFEF;  /* inactive chip fill          */
+  --neutral-200:  #DCDCDC;  /* hairline border             */
+  --neutral-300:  #D9D9D9;  /* avatar placeholder          */
+  --neutral-400:  #BDBDBD;  /* disabled / tertiary text    */
+  --neutral-500:  #989898;  /* placeholder text            */
+  --neutral-600:  #656565;  /* secondary text              */
+  --neutral-700:  #464646;  /* strong secondary text       */
+  --neutral-900:  #292929;  /* primary text (near-black)   */
+  --neutral-1000: #000000;
+
+  /* ============================================================
+     Semantic aliases — prefer these in product code
+     ============================================================ */
+
+  /* Brand */
+  --brand-primary:         var(--green-500);
+  --brand-primary-hover:   var(--green-600);
+  --brand-primary-pressed: var(--green-700);
+  --brand-on-primary:      var(--neutral-0);
+
+  /* Text */
+  --text-primary:    var(--neutral-900);
+  --text-secondary:  var(--neutral-600);
+  --text-tertiary:   var(--neutral-400);
+  --text-brand:      var(--green-700);
+  --text-on-brand:   var(--neutral-0);
+  --text-disabled:   var(--neutral-400);
+
+  /* Surfaces */
+  --surface-page:        var(--neutral-50);
+  --surface-card:        var(--neutral-0);
+  --surface-raised:      var(--neutral-0);
+  --surface-mint:        var(--green-50);   /* soft brand wash   */
+  --surface-mint-strong: var(--green-100);
+  --surface-inactive:    var(--neutral-100);
+
+  /* Borders */
+  --border-subtle:   var(--neutral-200);
+  --border-default:  var(--neutral-400);
+  --border-brand:    var(--green-500);
+  --border-dashed:   var(--green-400);   /* dashed "add" affordances */
+
+  /* Feedback */
+  --accent-streak:   var(--amber-500);
+  --accent-warm:     var(--amber-300);
+
+  /* Signature brand gradients */
+  --gradient-mint-sky: linear-gradient(180deg, var(--green-mint) 0%, var(--green-50) 100%);
+  --gradient-hill:     linear-gradient(180deg, var(--green-400) 0%, var(--green-600) 100%);
+  --gradient-brand:    linear-gradient(135deg, var(--green-400) 0%, var(--green-600) 100%);
+  --gradient-alarm:    linear-gradient(180deg, var(--green-300) 0%, var(--green-500) 100%);
+}

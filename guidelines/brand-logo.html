@@ -1,0 +1,47 @@
+<!-- @dsCard group="Brand" viewport="700x220" name="Logo & mascot" subtitle="Baro the turtle — wordmark + mark on light and dark" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-card); color: var(--text-primary); padding: 28px; }
+  .row { display: flex; gap: 20px; align-items: stretch; }
+  .panel { flex: 1; border-radius: 20px; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 28px; }
+  .light { background: var(--surface-mint); }
+  .dark { background: var(--neutral-900); }
+  .lock { display: flex; align-items: center; gap: 12px; }
+  .word { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; }
+  .marks { display: flex; align-items: flex-end; gap: 18px; }
+  .cap { font-size: 10px; color: var(--text-secondary); text-align: center; margin-top: 8px; }
+  .col { display: flex; flex-direction: column; align-items: center; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="panel light">
+      <div class="lock">
+        <svg width="58" height="58" viewBox="0 0 25.483 31.125" aria-label="Baro mark">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#3AE9A1"/><stop offset="100%" stop-color="#00AF67"/>
+            </linearGradient>
+          </defs>
+          <path d="M 3.07 1.279 C 6.043 -0.754 9.878 -0.316 11.637 2.256 C 12.547 3.587 12.721 5.229 12.266 6.786 L 10.713 12.952 C 12.186 12.051 13.919 11.532 15.772 11.532 C 21.135 11.532 25.483 15.879 25.483 21.242 C 25.483 23.65 24.604 25.853 23.152 27.55 C 20.312 31.317 16.734 31.974 10.092 30.145 C 9.047 29.858 8.118 29.371 7.322 28.739 C 6.243 29.067 4.975 29.126 3.54 28.959 C 3.529 28.957 0.749 28.542 1.876 26.003 C 2.941 23.602 4.038 21.077 4.761 18.274 L 6.098 11.836 C 4.018 12.05 2.011 11.281 0.873 9.617 C -0.886 7.045 0.098 3.312 3.07 1.279 Z M 16.312 15.517 C 13.4 15.517 11.04 17.943 11.04 20.935 C 11.04 23.928 13.4 26.353 16.312 26.353 C 19.224 26.353 21.586 23.928 21.586 20.935 C 21.586 17.943 19.224 15.517 16.312 15.517 Z" fill="url(#g1)" fill-rule="nonzero"></path>
+          <circle cx="4.6" cy="7" r="1.0" fill="#1a1a1a"></circle>
+        </svg>
+        <span class="word" style="color:var(--green-500)">Baro</span>
+      </div>
+    </div>
+    <div class="panel dark">
+      <div class="marks">
+        <div class="col">
+          <svg width="44" height="44" viewBox="0 0 25.483 31.125"><path d="M 3.07 1.279 C 6.043 -0.754 9.878 -0.316 11.637 2.256 C 12.547 3.587 12.721 5.229 12.266 6.786 L 10.713 12.952 C 12.186 12.051 13.919 11.532 15.772 11.532 C 21.135 11.532 25.483 15.879 25.483 21.242 C 25.483 23.65 24.604 25.853 23.152 27.55 C 20.312 31.317 16.734 31.974 10.092 30.145 C 9.047 29.858 8.118 29.371 7.322 28.739 C 6.243 29.067 4.975 29.126 3.54 28.959 C 3.529 28.957 0.749 28.542 1.876 26.003 C 2.941 23.602 4.038 21.077 4.761 18.274 L 6.098 11.836 C 4.018 12.05 2.011 11.281 0.873 9.617 C -0.886 7.045 0.098 3.312 3.07 1.279 Z M 16.312 15.517 C 13.4 15.517 11.04 17.943 11.04 20.935 C 11.04 23.928 13.4 26.353 16.312 26.353 C 19.224 26.353 21.586 23.928 21.586 20.935 C 21.586 17.943 19.224 15.517 16.312 15.517 Z" fill="#00C776" fill-rule="nonzero"></path><circle cx="4.6" cy="7" r="1.0" fill="#0a3a24"></circle></svg>
+          <span class="cap" style="color:#9aa">mark</span>
+        </div>
+        <span class="word" style="color:#fff">Baro</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

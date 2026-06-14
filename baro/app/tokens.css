@@ -1,0 +1,216 @@
+/* ============================================================
+   Baro — Design tokens (ported from /tokens/*.css)
+   ============================================================ */
+
+/* ---- Webfonts (Pretendard) ---- */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-Thin.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-ExtraLight.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-SemiBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-ExtraBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Pretendard-Black.otf") format("opentype");
+}
+
+:root {
+  /* ---- Brand green scale ---- */
+  --green-50:  #EBFFF5;
+  --green-100: #D6FFE9;
+  --green-200: #B6FFD4;
+  --green-300: #7EFAB7;
+  --green-400: #3AE9A1;
+  --green-500: #00C776;
+  --green-600: #00AF67;
+  --green-700: #04975E;
+  --green-800: #03794E;
+
+  --green-neon:  #00FFAE;
+  --green-mint:  #9CFFEA;
+
+  /* ---- Warm accents ---- */
+  --amber-500: #FFA509;
+  --amber-300: #FFDB63;
+
+  /* ---- Neutrals (cool gray) ---- */
+  --neutral-0:    #FFFFFF;
+  --neutral-50:   #FAFAFA;
+  --neutral-100:  #EFEFEF;
+  --neutral-200:  #DCDCDC;
+  --neutral-300:  #D9D9D9;
+  --neutral-400:  #BDBDBD;
+  --neutral-500:  #989898;
+  --neutral-600:  #656565;
+  --neutral-700:  #464646;
+  --neutral-900:  #292929;
+  --neutral-1000: #000000;
+
+  /* ---- Semantic aliases ---- */
+  --brand-primary:         var(--green-500);
+  --brand-primary-hover:   var(--green-600);
+  --brand-primary-pressed: var(--green-700);
+  --brand-on-primary:      var(--neutral-0);
+
+  --text-primary:    var(--neutral-900);
+  --text-secondary:  var(--neutral-600);
+  --text-tertiary:   var(--neutral-400);
+  --text-brand:      var(--green-700);
+  --text-on-brand:   var(--neutral-0);
+  --text-disabled:   var(--neutral-400);
+
+  --surface-page:        var(--neutral-50);
+  --surface-card:        var(--neutral-0);
+  --surface-raised:      var(--neutral-0);
+  --surface-mint:        var(--green-50);
+  --surface-mint-strong: var(--green-100);
+  --surface-inactive:    var(--neutral-100);
+
+  --border-subtle:   var(--neutral-200);
+  --border-default:  var(--neutral-400);
+  --border-brand:    var(--green-500);
+  --border-dashed:   var(--green-400);
+
+  --accent-streak:   var(--amber-500);
+  --accent-warm:     var(--amber-300);
+
+  --gradient-mint-sky: linear-gradient(180deg, var(--green-mint) 0%, var(--green-50) 100%);
+  --gradient-hill:     linear-gradient(180deg, var(--green-400) 0%, var(--green-600) 100%);
+  --gradient-brand:    linear-gradient(135deg, var(--green-400) 0%, var(--green-600) 100%);
+  --gradient-alarm:    linear-gradient(180deg, var(--green-300) 0%, var(--green-500) 100%);
+
+  /* ---- Typography ---- */
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+               "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+
+  --weight-light:      300;
+  --weight-regular:    400;
+  --weight-medium:     500;
+  --weight-semibold:   600;
+  --weight-bold:       700;
+  --weight-extrabold:  800;
+
+  --font-size-display: 40px;
+  --font-size-2xl:     30px;
+  --font-size-xl:      24px;
+  --font-size-lg:      20px;
+  --font-size-md:      18px;
+  --font-size-base:    16px;
+  --font-size-sm:      14px;
+  --font-size-xs:      12px;
+
+  --line-tight:   1.2;
+  --line-snug:    1.35;
+  --line-normal:  1.5;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: -0.01em;
+  --tracking-wide:    0.04em;
+
+  /* ---- Spacing & layout ---- */
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+
+  --gap-chip:        8px;
+  --gap-inline:      12px;
+  --pad-card:        20px;
+  --pad-card-lg:     24px;
+  --pad-screen:      24px;
+  --gap-section:     32px;
+
+  --app-width:       390px;
+  --nav-height:      72px;
+  --header-height:   64px;
+
+  /* ---- Radius, elevation & motion ---- */
+  --radius-xs:    8px;
+  --radius-sm:    12px;
+  --radius-md:    16px;
+  --radius-lg:    20px;
+  --radius-xl:    24px;
+  --radius-2xl:   32px;
+  --radius-pill:  999px;
+
+  --shadow-xs:   0 1px 4px rgba(80, 80, 80, 0.08);
+  --shadow-sm:   0 2px 8px rgba(80, 80, 80, 0.10);
+  --shadow-card: 0 4px 16px rgba(80, 80, 80, 0.16);
+  --shadow-lg:   0 8px 28px rgba(80, 80, 80, 0.18);
+
+  --shadow-brand-soft: 0 2px 12px rgba(0, 218, 138, 0.12);
+  --shadow-brand:      0 4px 16px rgba(0, 218, 138, 0.24);
+  --shadow-brand-lg:   0 8px 24px rgba(0, 218, 138, 0.28);
+
+  --glow-mint: 0 0 0 1px rgba(70, 226, 162, 0.16);
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce:   cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast:   120ms;
+  --duration-base:   200ms;
+  --duration-slow:   320ms;
+
+  --press-scale: 0.96;
+}

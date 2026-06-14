@@ -1,0 +1,32 @@
+<!-- @dsCard group="Spacing" viewport="700x200" name="Elevation" subtitle="Two families — neutral gray cards & green-glow brand" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-page); color: var(--text-primary); padding: 28px 24px; }
+  h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); margin: 0 0 14px; }
+  .row { display: flex; gap: 22px; margin-bottom: 22px; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .box { width: 120px; height: 56px; background: var(--surface-card); border-radius: 16px; }
+  .box.brand { background: var(--brand-primary); }
+  .name { font-size: 11px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <h4>Neutral — cards</h4>
+  <div class="row">
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-xs)"></div><span class="name">xs</span></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-sm)"></div><span class="name">sm</span></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-card)"></div><span class="name">card</span></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-lg)"></div><span class="name">lg</span></div>
+  </div>
+  <h4>Green-glow — brand / active</h4>
+  <div class="row">
+    <div class="item"><div class="box brand" style="box-shadow:var(--shadow-brand-soft)"></div><span class="name">brand-soft</span></div>
+    <div class="item"><div class="box brand" style="box-shadow:var(--shadow-brand)"></div><span class="name">brand</span></div>
+    <div class="item"><div class="box brand" style="box-shadow:var(--shadow-brand-lg)"></div><span class="name">brand-lg</span></div>
+  </div>
+</body>
+</html>

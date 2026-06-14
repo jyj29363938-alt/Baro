@@ -1,0 +1,44 @@
+<!-- @dsCard group="Components" viewport="700x230" name="Buttons" subtitle="Pill CTA — 4 variants, 3 sizes + round icon buttons" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-card); color: var(--text-primary); padding: 28px; }
+  .row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 22px; font-family: var(--font-sans); font-size: 16px; font-weight: 600; letter-spacing: -0.01em; border-radius: 999px; border: none; cursor: pointer; }
+  .primary { background: var(--brand-primary); color: #fff; box-shadow: var(--shadow-brand-soft); }
+  .dark { background: var(--neutral-900); color: var(--green-400); }
+  .soft { background: var(--surface-mint-strong); color: var(--text-brand); }
+  .ghost { background: transparent; color: var(--text-brand); border: 1.5px dashed var(--border-dashed); }
+  .sm { height: 36px; padding: 0 16px; font-size: 14px; }
+  .lg { height: 56px; padding: 0 28px; font-size: 18px; }
+  .disabled { opacity: .45; }
+  .ic { width: 44px; height: 44px; border-radius: 999px; border: none; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+  .ic.mint { background: var(--surface-mint); color: var(--brand-primary); }
+  .ic.neutral { background: var(--neutral-100); color: var(--text-secondary); }
+  .ic img { width: 22px; height: 22px; }
+  .lbl { font-size: 11px; color: var(--text-tertiary); width: 64px; }
+</style>
+</head>
+<body>
+  <div class="row"><span class="lbl">variants</span>
+    <button class="btn primary">시작하기</button>
+    <button class="btn dark">끄기</button>
+    <button class="btn soft">미루기</button>
+    <button class="btn ghost">+ 루틴 공유</button>
+    <button class="btn primary disabled">완료됨</button>
+  </div>
+  <div class="row"><span class="lbl">sizes</span>
+    <button class="btn primary sm">함께하기</button>
+    <button class="btn primary">함께하기</button>
+    <button class="btn primary lg">함께하기</button>
+  </div>
+  <div class="row"><span class="lbl">icon</span>
+    <button class="ic mint"><svg viewBox="0 0 16.875 16.442" width="22" height="22" fill="var(--brand-primary)" aria-hidden="true"><path d="M 5.654 6.721 C 4.885 5.951 4.5 5.024 4.5 3.938 C 4.5 2.852 4.885 1.924 5.654 1.154 C 6.424 0.385 7.352 0 8.438 0 C 9.524 0 10.451 0.385 11.221 1.154 C 11.99 1.924 12.375 2.852 12.375 3.938 C 12.375 5.024 11.99 5.951 11.221 6.721 C 10.451 7.49 9.524 7.875 8.438 7.875 C 7.352 7.875 6.424 7.49 5.654 6.721 Z M 0 16.442 L 0 13.941 C 0 13.39 0.15 12.88 0.449 12.411 C 0.748 11.941 1.148 11.58 1.649 11.328 C 2.761 10.783 3.882 10.374 5.014 10.101 C 6.145 9.829 7.287 9.692 8.438 9.692 C 9.588 9.692 10.73 9.829 11.861 10.101 C 12.993 10.374 14.114 10.783 15.226 11.328 C 15.727 11.58 16.127 11.941 16.426 12.411 C 16.725 12.88 16.875 13.39 16.875 13.941 L 16.875 16.442 L 0 16.442 Z M 1.688 14.755 L 15.188 14.755 L 15.188 13.941 C 15.188 13.713 15.122 13.503 14.99 13.308 C 14.858 13.115 14.678 12.956 14.452 12.834 C 13.483 12.356 12.494 11.995 11.487 11.749 C 10.48 11.503 9.463 11.38 8.438 11.38 C 7.412 11.38 6.395 11.503 5.388 11.749 C 4.381 11.995 3.392 12.356 2.423 12.834 C 2.197 12.956 2.017 13.115 1.885 13.308 C 1.753 13.503 1.688 13.713 1.688 13.941 L 1.688 14.755 Z M 10.027 5.527 C 10.467 5.086 10.688 4.556 10.688 3.938 C 10.688 3.319 10.467 2.789 10.027 2.348 C 9.586 1.908 9.056 1.688 8.438 1.688 C 7.819 1.688 7.289 1.908 6.848 2.348 C 6.408 2.789 6.188 3.319 6.188 3.938 C 6.188 4.556 6.408 5.086 6.848 5.527 C 7.289 5.967 7.819 6.188 8.438 6.188 C 9.056 6.188 9.586 5.967 10.027 5.527 Z" fill-rule="nonzero"></path></svg></button>
+    <button class="ic mint"><svg viewBox="0 0 16.875 21.591" width="22" height="22" fill="var(--brand-primary)" aria-hidden="true"><path d="M 0 18.433 L 0 16.745 L 2.034 16.745 L 2.034 8.351 C 2.034 6.838 2.501 5.5 3.435 4.338 C 4.368 3.175 5.567 2.432 7.031 2.107 L 7.031 1.406 C 7.031 1.016 7.168 0.684 7.441 0.41 C 7.714 0.137 8.046 0 8.436 0 C 8.826 0 9.159 0.137 9.433 0.41 C 9.707 0.684 9.844 1.016 9.844 1.406 L 9.844 2.107 C 11.308 2.432 12.507 3.175 13.44 4.338 C 14.374 5.5 14.841 6.838 14.841 8.351 L 14.841 16.745 L 16.875 16.745 L 16.875 18.433 L 0 18.433 Z M 8.436 21.591 C 7.876 21.591 7.397 21.392 7 20.994 C 6.603 20.596 6.404 20.117 6.404 19.558 L 10.471 19.558 C 10.471 20.119 10.272 20.598 9.873 20.995 C 9.475 21.393 8.995 21.591 8.436 21.591 Z M 3.721 16.745 L 13.154 16.745 L 13.154 8.351 C 13.154 7.049 12.693 5.937 11.773 5.016 C 10.852 4.095 9.74 3.635 8.438 3.635 C 7.135 3.635 6.023 4.095 5.102 5.016 C 4.182 5.937 3.721 7.049 3.721 8.351 L 3.721 16.745 Z" fill-rule="nonzero"></path></svg></button>
+    <button class="ic neutral"><svg viewBox="0 0 28.333 31.859" width="22" height="22" fill="var(--text-secondary)" aria-hidden="true"><path d="M 3.013 31.859 C 2.171 31.859 1.458 31.567 0.875 30.984 C 0.292 30.4 0 29.688 0 28.846 L 0 6.538 C 0 5.696 0.292 4.984 0.875 4.4 C 1.458 3.817 2.171 3.525 3.013 3.525 L 5.32 3.525 L 5.32 0 L 7.885 0 L 7.885 3.525 L 20.513 3.525 L 20.513 0 L 23.013 0 L 23.013 3.525 L 25.32 3.525 C 26.162 3.525 26.875 3.817 27.458 4.4 C 28.042 4.984 28.333 5.696 28.333 6.538 L 28.333 28.846 C 28.333 29.688 28.042 30.4 27.458 30.984 C 26.875 31.567 26.162 31.859 25.32 31.859 L 3.013 31.859 Z M 3.013 29.359 L 25.32 29.359 C 25.449 29.359 25.566 29.305 25.673 29.198 C 25.78 29.092 25.833 28.974 25.833 28.846 L 25.833 13.205 L 2.5 13.205 L 2.5 28.846 C 2.5 28.974 2.553 29.092 2.66 29.198 C 2.767 29.305 2.885 29.359 3.013 29.359 Z M 2.5 10.705 L 25.833 10.705 L 25.833 6.538 C 25.833 6.41 25.78 6.292 25.673 6.186 C 25.566 6.079 25.449 6.025 25.32 6.025 L 3.013 6.025 C 2.885 6.025 2.767 6.079 2.66 6.186 C 2.553 6.292 2.5 6.41 2.5 6.538 L 2.5 10.705 Z M 6.25 18.942 L 6.25 16.442 L 22.083 16.442 L 22.083 18.942 L 6.25 18.942 Z M 6.25 25.609 L 6.25 23.109 L 17.083 23.109 L 17.083 25.609 L 6.25 25.609 Z" fill-rule="nonzero"></path></svg></button>
+  </div>
+</body>
+</html>

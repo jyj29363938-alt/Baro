@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($r = Invoke-WebRequest -Uri http://localhost:3000 -UseBasicParsing; $r.StatusCode; $r.Content -match \"\\(?s\\)Failed to compile|Module not found\")",
+      "PowerShell(git init)"
+    ]
+  }
+}

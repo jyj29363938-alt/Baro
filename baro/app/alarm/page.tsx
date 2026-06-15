@@ -69,7 +69,6 @@ function AlarmRow({ h, title, days, time, screen, sound, on }: AlarmRowProps) {
               size={34}
               icon={EDIT_ICON}
               ariaLabel="알림 편집"
-              onClick={() => setEnabled((v) => !v)}
             />
           </div>
           <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
@@ -79,7 +78,9 @@ function AlarmRow({ h, title, days, time, screen, sound, on }: AlarmRowProps) {
           </div>
           <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
             <Button size="sm" variant="soft">미루기</Button>
-            <Button size="sm" variant="soft">끄기</Button>
+            <Button size="sm" variant="soft" onClick={() => setEnabled((v) => !v)}>
+              {enabled ? "끄기" : "시작하기"}
+            </Button>
           </div>
         </div>
       </div>
@@ -173,7 +174,9 @@ export default function AlarmPage() {
               >
                 미루기
               </Button>
-              <Button variant="dark" size="sm" onClick={() => setRunning(false)}>끄기</Button>
+              <Button variant="dark" size="sm" onClick={() => setRunning((v) => !v)}>
+                {running ? "끄기" : "시작하기"}
+              </Button>
             </div>
           </div>
         </div>

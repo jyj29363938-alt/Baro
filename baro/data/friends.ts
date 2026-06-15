@@ -20,10 +20,10 @@ export interface Routine {
 }
 
 export const routines: Routine[] = [
-  { id: "r1", img: "/images/stretch-2.jpg", label: "우주인님 루틴", title: "간단 3분 스트레칭!" },
-  { id: "r2", img: "/images/stretch-3.jpg", label: "이상한님 루틴", title: "같이 유연해져봐요" },
-  { id: "r3", img: "/images/stretch-1.jpg", label: "고북이님 루틴", title: "으라차차 하체 스트레칭" },
-  { id: "r4", img: "/images/stretch-2.jpg", label: "바르게님 루틴", title: "굳은 허리를 풀어보세요!" },
+  { id: "r1", img: "/images/routine-spaceman.png", label: "우주인님 루틴", title: "간단 3분 스트레칭!" },
+  { id: "r2", img: "/images/routine-strange.png", label: "이상한님 루틴", title: "같이 유연해져봐요" },
+  { id: "r3", img: "/images/routine-turtle.png", label: "고북이님 루틴", title: "으라차차 하체 스트레칭" },
+  { id: "r4", img: "/images/routine-correct.png", label: "바르게님 루틴", title: "굳은 허리를 풀어보세요!" },
 ];
 
 export interface FriendActivity {

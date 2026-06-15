@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Header } from "@/components/ui/Header";
 import { Badge } from "@/components/ui/Badge";
@@ -13,9 +13,30 @@ import { user, weekDays, alarm, type DayRecord } from "@/data/user";
 import { todayStretches } from "@/data/stretches";
 import { challenges } from "@/data/challenges";
 
+const ALARM_SNOOZE_SECONDS = 60 * 60;
+const ALARM_INITIAL_SECONDS = 72; // 01:12
+
+function formatCountdown(totalSeconds: number) {
+  const clamped = Math.max(0, totalSeconds);
+  const m = Math.floor(clamped / 60);
+  const s = clamped % 60;
+  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+}
+
 export default function HomePage() {
   const [days, setDays] = useState<DayRecord[]>(weekDays);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const [alarmRemaining, setAlarmRemaining] = useState(ALARM_INITIAL_SECONDS);
+  const [alarmRunning, setAlarmRunning] = useState(true);
+
+  useEffect(() => {
+    if (!alarmRunning) return;
+    const id = setInterval(() => {
+      setAlarmRemaining((r) => (r > 0 ? r - 1 : 0));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [alarmRunning]);
 
   const toggleDay = (i: number) => {
     setDays((prev) =>
@@ -206,6 +227,7 @@ export default function HomePage() {
                   background: "rgba(255,255,255,.22)",
                   cursor: "pointer",
                 }}
+                onClick={() => setAlarmRemaining((r) => r + ALARM_SNOOZE_SECONDS)}
               >
                 미루기
               </button>
@@ -220,8 +242,9 @@ export default function HomePage() {
                   background: "rgba(255,255,255,.22)",
                   cursor: "pointer",
                 }}
+                onClick={() => setAlarmRunning((v) => !v)}
               >
-                끄기
+                {alarmRunning ? "끄기" : "시작하기"}
               </button>
             </div>
           </div>
@@ -234,7 +257,7 @@ export default function HomePage() {
               color: "var(--brand-on-primary)",
             }}
           >
-            {alarm.remaining}
+            {formatCountdown(alarmRemaining)}
           </div>
         </div>
       </div>

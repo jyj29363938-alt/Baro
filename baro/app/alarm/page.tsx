@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "@/components/ui/Header";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -13,6 +13,16 @@ const EDIT_ICON = (
     <path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
   </svg>
 );
+
+const SNOOZE_SECONDS = 60 * 60;
+const INITIAL_COUNTDOWN = 72; // 01:12
+
+function formatCountdown(totalSeconds: number) {
+  const clamped = Math.max(0, totalSeconds);
+  const m = Math.floor(clamped / 60);
+  const s = clamped % 60;
+  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+}
 
 interface AlarmRowProps {
   h: string;
@@ -87,6 +97,20 @@ function AlarmRow({ h, title, days, time, screen, sound, on }: AlarmRowProps) {
 }
 
 export default function AlarmPage() {
+  const [remaining, setRemaining] = useState(INITIAL_COUNTDOWN);
+  const [total, setTotal] = useState(INITIAL_COUNTDOWN);
+  const [running, setRunning] = useState(true);
+
+  useEffect(() => {
+    if (!running) return;
+    const id = setInterval(() => {
+      setRemaining((r) => (r > 0 ? r - 1 : 0));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [running]);
+
+  const progress = total > 0 ? Math.min(1, Math.max(0, remaining / total)) : 0;
+
   return (
     <div>
       <Header title="알림 설정" />
@@ -113,7 +137,8 @@ export default function AlarmPage() {
               strokeWidth="10"
               strokeLinecap="round"
               strokeDasharray={2 * Math.PI * 88}
-              strokeDashoffset={2 * Math.PI * 88 * (1 - 0.78)}
+              strokeDashoffset={2 * Math.PI * 88 * (1 - progress)}
+              style={{ transition: "stroke-dashoffset 1s linear" }}
             />
           </svg>
           <div
@@ -131,15 +156,24 @@ export default function AlarmPage() {
               <span style={{ fontSize: 16, fontWeight: 700, color: "rgba(255,255,255,0.85)" }}>다음 알림</span>
               <span style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 16, fontWeight: 700, color: "var(--neutral-900)" }}>
                 <Icon name="alarm" size={18} color="var(--neutral-900)" />
-                01:12
+                {formatCountdown(remaining)}
               </span>
             </div>
             <div style={{ fontSize: 52, fontWeight: 800, color: "var(--green-800)", letterSpacing: "-0.02em", margin: "6px 0 18px" }}>
               14:00
             </div>
             <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
-              <Button variant="dark" size="sm">미루기</Button>
-              <Button variant="dark" size="sm">끄기</Button>
+              <Button
+                variant="dark"
+                size="sm"
+                onClick={() => {
+                  setRemaining((r) => r + SNOOZE_SECONDS);
+                  setTotal((t) => t + SNOOZE_SECONDS);
+                }}
+              >
+                미루기
+              </Button>
+              <Button variant="dark" size="sm" onClick={() => setRunning(false)}>끄기</Button>
             </div>
           </div>
         </div>
@@ -149,7 +183,7 @@ export default function AlarmPage() {
       <div style={{ padding: "26px 20px 0" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: 20, fontWeight: 700 }}>방해 금지 시간</span>
-          <div style={{ display: "flex", gap: 8 }}>
+          <div style={{ display: "flex", gap: 12 }}>
             {["+", "−"].map((sym) => (
               <span
                 key={sym}
@@ -157,12 +191,10 @@ export default function AlarmPage() {
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: 26,
-                  height: 26,
-                  borderRadius: "50%",
-                  border: "1.5px solid var(--border-subtle)",
+                  width: 22,
+                  height: 22,
                   color: "var(--text-tertiary)",
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: 700,
                   cursor: "pointer",
                 }}
@@ -189,9 +221,6 @@ export default function AlarmPage() {
       <div style={{ padding: "14px 16px 16px" }}>
         <AlarmRow h="4H" title="매일 스트레칭!" days={["월", "화", "수", "목", "금"]} time="09:00~22:00" screen="전체 화면 사용" sound="무음" on />
         <AlarmRow h="6H" title="무시하면 거북이됨" days={["토", "일"]} time="13:00~22:00" screen="일부 화면 사용" sound="진동" on={false} />
-        <Button variant="ghost" full leadingIcon={<span style={{ fontSize: 18, marginRight: 2 }}>+</span>}>
-          새 알림 추가하기
-        </Button>
       </div>
       <div style={{ height: 8 }} />
     </div>

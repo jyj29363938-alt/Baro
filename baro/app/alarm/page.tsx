@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/Button";
 import { IconButton } from "@/components/ui/IconButton";
 import { Icon } from "@/components/ui/Icon";
 import { DayChip } from "@/components/ui/DayChip";
-import { Toggle } from "@/components/ui/Toggle";
 
 const EDIT_ICON = (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -55,7 +54,13 @@ function AlarmRow({ h, title, days, time, screen, sound, on }: AlarmRowProps) {
               <span style={{ fontSize: 16, fontWeight: 700 }}>{title}</span>
               <Icon name={enabled ? "notifications" : "notifications_off"} size={16} color="var(--text-tertiary)" />
             </div>
-            <Toggle checked={enabled} onChange={setEnabled} />
+            <IconButton
+              variant="mint"
+              size={34}
+              icon={EDIT_ICON}
+              ariaLabel="알림 편집"
+              onClick={() => setEnabled((v) => !v)}
+            />
           </div>
           <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
             {days.map((d, i) => (
@@ -90,24 +95,53 @@ export default function AlarmPage() {
         style={{
           margin: "4px 16px 0",
           borderRadius: 24,
-          padding: "30px 20px",
-          background: "linear-gradient(180deg, var(--green-300), var(--brand-primary))",
-          textAlign: "center",
+          padding: "28px 20px",
+          background: "linear-gradient(135deg, var(--green-50) 0%, var(--brand-primary) 100%)",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
-          <span style={{ fontSize: 16, fontWeight: 700, color: "var(--green-800)" }}>다음 알림</span>
-          <span style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 16, fontWeight: 700, color: "var(--neutral-900)" }}>
-            <Icon name="alarm" size={18} color="var(--neutral-900)" />
-            01:12
-          </span>
-        </div>
-        <div style={{ fontSize: 52, fontWeight: 800, color: "var(--green-800)", letterSpacing: "-0.02em", margin: "6px 0 18px" }}>
-          14:00
-        </div>
-        <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
-          <Button variant="dark" size="sm">미루기</Button>
-          <Button variant="dark" size="sm">끄기</Button>
+        <div style={{ position: "relative", width: "100%", maxWidth: 280, aspectRatio: "1 / 1" }}>
+          <svg viewBox="0 0 200 200" width="100%" height="100%" style={{ transform: "rotate(-90deg)" }}>
+            <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="10" />
+            <circle
+              cx="100"
+              cy="100"
+              r="88"
+              fill="none"
+              stroke="rgba(255,255,255,0.9)"
+              strokeWidth="10"
+              strokeLinecap="round"
+              strokeDasharray={2 * Math.PI * 88}
+              strokeDashoffset={2 * Math.PI * 88 * (1 - 0.78)}
+            />
+          </svg>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontSize: 16, fontWeight: 700, color: "rgba(255,255,255,0.85)" }}>다음 알림</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 16, fontWeight: 700, color: "var(--neutral-900)" }}>
+                <Icon name="alarm" size={18} color="var(--neutral-900)" />
+                01:12
+              </span>
+            </div>
+            <div style={{ fontSize: 52, fontWeight: 800, color: "var(--green-800)", letterSpacing: "-0.02em", margin: "6px 0 18px" }}>
+              14:00
+            </div>
+            <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
+              <Button variant="dark" size="sm">미루기</Button>
+              <Button variant="dark" size="sm">끄기</Button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -115,9 +149,27 @@ export default function AlarmPage() {
       <div style={{ padding: "26px 20px 0" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: 20, fontWeight: 700 }}>방해 금지 시간</span>
-          <div style={{ display: "flex", gap: 6, color: "var(--text-tertiary)" }}>
-            <span style={{ fontSize: 22, cursor: "pointer" }}>+</span>
-            <span style={{ fontSize: 22, cursor: "pointer" }}>−</span>
+          <div style={{ display: "flex", gap: 8 }}>
+            {["+", "−"].map((sym) => (
+              <span
+                key={sym}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: 26,
+                  height: 26,
+                  borderRadius: "50%",
+                  border: "1.5px solid var(--border-subtle)",
+                  color: "var(--text-tertiary)",
+                  fontSize: 16,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                }}
+              >
+                {sym}
+              </span>
+            ))}
           </div>
         </div>
         <div style={{ fontSize: 14, color: "var(--brand-primary)", fontWeight: 600, marginTop: 4 }}>
@@ -132,10 +184,7 @@ export default function AlarmPage() {
       {/* 설정된 알림 목록 */}
       <div style={{ padding: "24px 20px 0", display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
         <span style={{ fontSize: 20, fontWeight: 700 }}>설정된 알림 목록</span>
-        <span style={{ fontSize: 14, color: "var(--text-tertiary)", fontWeight: 600, display: "flex", alignItems: "center", gap: 4 }}>
-          <IconButton variant="ghost" size={28} icon={EDIT_ICON} ariaLabel="알림 편집" />
-          편집 ›
-        </span>
+        <span style={{ fontSize: 14, color: "var(--text-tertiary)", fontWeight: 600 }}>편집 ›</span>
       </div>
       <div style={{ padding: "14px 16px 16px" }}>
         <AlarmRow h="4H" title="매일 스트레칭!" days={["월", "화", "수", "목", "금"]} time="09:00~22:00" screen="전체 화면 사용" sound="무음" on />

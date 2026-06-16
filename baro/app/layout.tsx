@@ -6,6 +6,13 @@ import { SplashGate } from "@/components/SplashGate";
 export const metadata: Metadata = {
   title: "Baro — 자세교정",
   description: "흐름을 끊지 않는 자세교정 앱",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

@@ -47,7 +47,7 @@ export default function MyPage() {
         {/* profile */}
         <Card padding={20} radius={20} style={{ position: "relative" }}>
           <div style={{ display: "flex", gap: 18 }}>
-            <Avatar size={92} />
+            <Avatar size={92} src="/images/avatar-user.svg" alt="프로필" />
             <div style={{ flex: 1 }}>
               <div style={{ fontSize: 24, fontWeight: 700 }}>{user.persona}</div>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4, fontSize: 16, fontWeight: 700 }}>
